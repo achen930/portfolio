@@ -1,16 +1,16 @@
 "use client";
 
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 
 const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"]
-})
+    variable: "--font-dm-sans",
+    subsets: ["latin"],
+    weight: ["400", "500", "700"],
+});
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -18,28 +18,26 @@ const dmSans = DM_Sans({
 // };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{ children: React.ReactNode }>) {
-  useEffect(() => {
-    const lenis = new Lenis();
+    useEffect(() => {
+        const lenis = new Lenis();
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+        function raf(time: number) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
 
-    requestAnimationFrame(raf);
+        requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy(); // Cleanup on unmount
-    };
-  }, []);
+        return () => {
+            lenis.destroy(); // Cleanup on unmount
+        };
+    }, []);
 
-  return (
-    <html lang="en">
-      <body className={`${dmSans.variable} antialiased`}>
-        {children}
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className={`${dmSans.variable} antialiased`}>{children}</body>
+        </html>
+    );
 }

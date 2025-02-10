@@ -11,7 +11,7 @@ export const HexagonsCore = ({
 }) => {
     const rows = new Array(10).fill(1);
     const cols = (i: number) => new Array(10 - Math.abs(6 - i)).fill(1);
-    let colors = ["#A7C7E7", "#FACBD0", "#C9E5C0", "#C3B1E1"];
+    const colors = ["#A7C7E7", "#FACBD0", "#C9E5C0", "#C3B1E1"];
 
     const getRandomColor = () => {
         return colors[Math.floor(Math.random() * colors.length)];
